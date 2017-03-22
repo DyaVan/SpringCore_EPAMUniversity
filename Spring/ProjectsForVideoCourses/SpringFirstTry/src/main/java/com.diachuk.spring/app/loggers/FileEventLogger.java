@@ -14,6 +14,8 @@ public class FileEventLogger implements IEventLogger{
     protected File logFile;
 
     private void init() throws IOException {
+        System.out.println("FileEventLogger INIT");
+
         if (!logFile.canWrite()) {
             throw new IOException();
         }

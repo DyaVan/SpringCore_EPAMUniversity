@@ -5,6 +5,7 @@ import com.diachuk.spring.app.loggers.CombinedEventLogger;
 import com.diachuk.spring.app.loggers.ConsoleEventLogger;
 import com.diachuk.spring.app.loggers.IEventLogger;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.util.Map;
@@ -61,6 +62,7 @@ public class App {
 
     public static void main(String[] args) {
         ctx = new FileSystemXmlApplicationContext("AppConfig.xml");
+        new AnnotationConfigApplicationContext().register(A);
         App app = (App) ctx.getBean("app");
 
         app.logEvent(ctx.getBean("event", Event.class), EventType.INFO);
