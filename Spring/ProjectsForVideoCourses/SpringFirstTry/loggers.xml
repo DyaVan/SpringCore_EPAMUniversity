@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="consoleEventLogger" class="com.diachuk.spring.app.loggers.ConsoleEventLogger"/>
+    <!--<context:component-scan base-package="spring.app.loggers"/>-->
 
-    <bean id="fileEventLogger" class="com.diachuk.spring.app.loggers.FileEventLogger"
-          init-method="init"  >
-        <constructor-arg ref="logFile"/>
-    </bean>
+    <bean id="consoleEventLogger" class="com.diachuk.sspring.app.loggers.ConsoleEventLogger"/>
+
+    <!--<bean id="fileEventLogger" class="FileEventLogger"-->
+          <!--init-method="init"  >-->
+        <!--<constructor-arg ref="logFile"/>-->
+    <!--</bean>-->
 
     <bean id="logFile" class="java.io.File">
         <constructor-arg value="D:\Ivan_Diachuk\Git_Shared_Dir\Spring\ProjectsForVideoCourses\SpringFirstTry\src\main\resources\log"/>
     </bean>
 
-    <bean id="cacheFileEventLogger" class="com.diachuk.spring.app.loggers.CacheFileEventLogger"
+    <bean id="cacheFileEventLogger" class="com.diachuk.sspring.app.loggers.CacheFileEventLogger"
           init-method="init" destroy-method="destroy" >
         <constructor-arg ref="logFile"/>
         <constructor-arg value="10"/>
     </bean>
 
-    <bean id="combinedEventLogger" class="com.diachuk.spring.app.loggers.CombinedEventLogger">
+    <bean id="combinedEventLogger" class="com.diachuk.sspring.app.loggers.CombinedEventLogger">
         <constructor-arg>
             <list>
                 <ref bean="consoleEventLogger"/>
-                <ref bean="fileEventLogger"/>
+                <ref bean="lolka"/>
                 <ref bean="cacheFileEventLogger"/>
             </list>
         </constructor-arg>

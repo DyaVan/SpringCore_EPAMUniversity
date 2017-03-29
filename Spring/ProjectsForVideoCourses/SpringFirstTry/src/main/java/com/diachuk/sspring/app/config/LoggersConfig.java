@@ -1,10 +1,9 @@
-package com.diachuk.spring.app.config;
+package com.diachuk.sspring.app.config;
 
-import com.diachuk.spring.app.loggers.*;
+import com.diachuk.sspring.app.loggers.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.ArrayList;

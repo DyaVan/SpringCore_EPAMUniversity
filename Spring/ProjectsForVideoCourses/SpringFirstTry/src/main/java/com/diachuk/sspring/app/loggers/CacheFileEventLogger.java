@@ -1,10 +1,8 @@
-package com.diachuk.spring.app.loggers;
+package com.diachuk.sspring.app.loggers;
 
-import com.diachuk.spring.app.Event;
-import org.apache.commons.io.FileUtils;
+import com.diachuk.sspring.app.Event;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -6,9 +6,11 @@
        xmlns:c="http://www.springframework.org/schema/c" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<import resource="loggers.xml"/>-->
-    <context:annotation-config/>
-    <!--<bean class="com.diachuk.spring.app.config.LoggersConfig"/>-->
+    <import resource="loggers.xml"/>
+    <!--<context:annotation-config/>-->
+    <!--<bean class="LoggersConfig"/>-->
+    <context:component-scan base-package="com.diachuk.sspring.app.loggers"/>
+
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -28,19 +30,19 @@
 
 
     <bean id="client"
-          class="com.diachuk.spring.app.Client"
+          class="com.diachuk.sspring.app.Client"
           c:id="${id}"
           c:fullName="${name}"
           p:greeting="${greeting}">
     </bean>
 
 
-    <bean id="app" class="com.diachuk.spring.app.App">
+    <bean id="app" class="com.diachuk.sspring.app.App">
         <constructor-arg ref="client"/>
         <constructor-arg ref="loggersMap"/>
     </bean>
 
-    <bean id="event" class="com.diachuk.spring.app.Event" scope="prototype">
+    <bean id="event" class="com.diachuk.sspring.app.Event" scope="prototype">
         <constructor-arg>
             <bean class="java.util.Date"/>
         </constructor-arg>
@@ -52,7 +54,7 @@
 
 
     <util:map id="loggersMap">
-        <entry key="ERROR" value-ref="combinedEventLogger"/>
+        <!--<entry key="ERROR" value-ref="combinedEventLogger"/>-->
         <entry key="INFO" value-ref="consoleEventLogger"/>
     </util:map>
 

@@ -1,4 +1,4 @@
-package com.diachuk.spring.app;
+package com.diachuk.sspring.app;
 
 import java.text.DateFormat;
 

@@ -1,4 +1,4 @@
-package com.diachuk.spring.app;
+package com.diachuk.sspring.app;
 
 import org.junit.Before;
 import org.junit.Rule;

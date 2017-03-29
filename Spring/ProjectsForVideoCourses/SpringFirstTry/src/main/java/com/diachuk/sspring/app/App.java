@@ -1,11 +1,9 @@
-package com.diachuk.spring.app;
+package com.diachuk.sspring.app;
 
-import com.diachuk.spring.app.loggers.CacheFileEventLogger;
-import com.diachuk.spring.app.loggers.CombinedEventLogger;
-import com.diachuk.spring.app.loggers.ConsoleEventLogger;
-import com.diachuk.spring.app.loggers.IEventLogger;
+import com.diachuk.sspring.app.loggers.CacheFileEventLogger;
+import com.diachuk.sspring.app.loggers.FileEventLogger;
+import com.diachuk.sspring.app.loggers.IEventLogger;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import java.util.Map;
@@ -62,14 +60,24 @@ public class App {
 
     public static void main(String[] args) {
         ctx = new FileSystemXmlApplicationContext("AppConfig.xml");
-        new AnnotationConfigApplicationContext().register(A);
+//        new AnnotationConfigApplicationContext().register(LoggersConfig.class);
         App app = (App) ctx.getBean("app");
 
+//        System.out.println(ctx.getBean("fileEventLogger"));
         app.logEvent(ctx.getBean("event", Event.class), EventType.INFO);
         app.logEvent(ctx.getBean("event", Event.class), EventType.ERROR);
         app.logEvent(ctx.getBean("event", Event.class));
 
+        FileEventLogger logger = (FileEventLogger) ctx.getBean("lolka");
+
+        logger.doMethod();
+        logger.doMethod();
+
         ctx.close();
 
     }
+
+
 }
+
+

@@ -1,6 +1,6 @@
-package com.diachuk.spring.app.loggers;
+package com.diachuk.sspring.app.loggers;
 
-import com.diachuk.spring.app.Event;
+import com.diachuk.sspring.app.Event;
 
 import java.util.List;
 
